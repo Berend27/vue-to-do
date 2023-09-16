@@ -2,6 +2,8 @@
   "todos": [
     { "title": "Finish the todo app" },
     { "title": "Walk Peanut" },
+    { "title": "Lift weights" },
+    { "title": "Study for the GRE" },
     { "title": "Study German" }
   ]
 }

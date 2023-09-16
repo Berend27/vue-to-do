@@ -14,6 +14,7 @@
 
 <script>
 import Todo from "@/components/Todo.vue";
+import axios from "axios";
 
 export default {
   name: "HomePage",
@@ -26,7 +27,14 @@ export default {
     };
   },
   created() {
-    this.todos = [];
+    axios
+      .get("https://my-json-server.typicode.com/Berend27/vue-to-do/todos")
+      .then((response) => {
+        this.todos = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
