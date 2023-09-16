@@ -26,11 +26,7 @@ export default {
     };
   },
   created() {
-    this.todos = [
-      { title: "Finish the todo app" },
-      { title: "Walk Peanut" },
-      { title: "Study German" },
-    ];
+    this.todos = [];
   },
 };
 </script>
