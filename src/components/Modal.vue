@@ -1,10 +1,11 @@
-<script> 
-  export default {
-    props: {
-      knopftext: String,
-      show: Boolean, 
-    }
-  }
+<script>
+export default {
+  props: {
+    modalTitle: String,
+    show: Boolean,
+  },
+  methods: {},
+};
 </script>
 
 <template>
@@ -12,15 +13,20 @@
     <div v-if="show" class="modal-mask">
       <div class="modal-container">
         <div class="modal-header">
-          <slot name="header"></slot>
+          <h1>{{ modalTitle }}</h1>
+          <button
+            class="Fußzeille-button"
+            type="button"
+            @click="$emit('close')"
+          >
+            X
+          </button>
+        </div>
+        <div class="modal-body">
+          <slot name="body"></slot>
         </div>
         <div class="modal-footer">
-          <slot name="footer">
-            <button 
-              class="Fußzeille-button"
-              @click="$emit('close')"
-            >{{ knopftext }}</button>
-          </slot>
+          <slot name="footer"> </slot>
         </div>
       </div>
     </div>
@@ -48,5 +54,25 @@
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-header button {
+  display: inline-block;
+}
+
+.modal-header h1 {
+  font-size: 20px;
+  margin: 0;
 }
 </style>

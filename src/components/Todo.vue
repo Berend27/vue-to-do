@@ -1,6 +1,7 @@
 <template>
   <div class="todo">
     <h2>{{ todo.title }}</h2>
+    <button class="delete-todo">X</button>
   </div>
 </template>
 
@@ -14,3 +15,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.todo > * {
+  display: inline-block;
+}
+</style>
