@@ -28,7 +28,7 @@
           <h3>Add a Task</h3>
         </template>
         <template #body>
-          <TodoForm />
+          <TodoForm v-model="showModal" :count="todos.length" />
         </template>
       </modal>
     </Teleport>
@@ -39,7 +39,7 @@
 import Modal from "@/components/Modal.vue";
 import Todo from "@/components/Todo.vue";
 import TodoForm from "./TodoForm.vue";
-import axios from "axios";
+import apiService from "@/services/api.js";
 
 export default {
   name: "HomePage",
@@ -51,23 +51,24 @@ export default {
   data() {
     return {
       showModal: false,
-      todos: null,
+      todos: [],
     };
   },
   methods: {
+    async fetchTodos() {
+      try {
+        const response = await apiService.getTodos();
+        this.todos = response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
     saveTodo() {
       console.log("saveTodo");
     },
   },
   created() {
-    axios
-      .get("https://my-json-server.typicode.com/Berend27/vue-to-do/todos")
-      .then((response) => {
-        this.todos = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.fetchTodos();
   },
 };
 </script>
