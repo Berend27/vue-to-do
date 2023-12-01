@@ -1,7 +1,10 @@
 <template>
   <form id="todo-form">
     <label>Task<br /><input id="title" name="title" v-model="title" /></label>
-    <button @click.prevent="saveTodo">Addiere</button>
+    <div>
+      <br />
+      <button @click.prevent="saveTodo">Addiere</button>
+    </div>
   </form>
 </template>
 
@@ -13,6 +16,7 @@ export default {
     count: Number,
     showModal: Boolean,
   },
+  emits: ["added"],
   data() {
     return {
       title: "",
@@ -24,7 +28,7 @@ export default {
         .postTodo({ title: this.title, id: this.count + 1 })
         .then((response) => {
           console.log("Todo added:", response.data);
-          this.$emit("update:showModal", !this.showModal); // todo: fix this
+          this.$emit("added", { title: this.title, id: this.count + 1 });
         })
         .catch((error) => {
           console.log("Error saving", error);
@@ -34,4 +38,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#todo-form {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+</style>

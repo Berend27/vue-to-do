@@ -28,7 +28,7 @@
           <h3>Add a Task</h3>
         </template>
         <template #body>
-          <TodoForm v-model="showModal" :count="todos.length" />
+          <TodoForm @added="(todo) => todos.push(todo)" :count="todos.length" />
         </template>
       </modal>
     </Teleport>

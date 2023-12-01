@@ -33,7 +33,7 @@ export default {
   </Transition>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -44,6 +44,10 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   transition: opacity 0.3s ease;
+}
+
+.modal-body {
+  width: 100%;
 }
 
 .modal-container {
@@ -65,14 +69,14 @@ export default {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
 
-.modal-header button {
-  display: inline-block;
-}
+  button {
+    display: inline-block;
+  }
 
-.modal-header h1 {
-  font-size: 20px;
-  margin: 0;
+  h1 {
+    font-size: 20px;
+    margin: 0;
+  }
 }
 </style>
