@@ -1,7 +1,7 @@
 <template>
   <div class="todo">
     <h2>{{ todo.title }}</h2>
-    <button class="delete-todo">X</button>
+    <button class="delete-todo" @click="$emit('delete', index)">X</button>
   </div>
 </template>
 
@@ -12,7 +12,12 @@ export default {
       type: Object,
       required: true,
     },
+    index: {
+      type: Number,
+      required: true,
+    },
   },
+  emits: ["delete"],
 };
 </script>
 

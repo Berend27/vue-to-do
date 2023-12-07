@@ -7,6 +7,10 @@ const apiClient = axios.create({
 });
 
 export default {
+  deleteTodo() {
+    // todo
+  },
+
   getTodos() {
     return apiClient.get("/todos");
   },

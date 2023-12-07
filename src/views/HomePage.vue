@@ -8,7 +8,17 @@
 <template>
   <div class="home">
     <h1>Todos for today</h1>
-    <Todo v-for="todo in todos" :key="todo.title" :todo="todo" />
+    <Todo
+      v-for="(todo, index) in todos"
+      :key="todo.id"
+      :todo="todo"
+      :index="index"
+      @delete="
+        (number) => {
+          todos.splice(number, 1);
+        }
+      "
+    />
     <button
       id="show-modal"
       @click="
