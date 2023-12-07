@@ -73,9 +73,6 @@ export default {
         console.log(error);
       }
     },
-    saveTodo() {
-      console.log("saveTodo");
-    },
   },
   created() {
     this.fetchTodos();

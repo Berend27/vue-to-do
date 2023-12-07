@@ -7,8 +7,8 @@ const apiClient = axios.create({
 });
 
 export default {
-  deleteTodo() {
-    // todo
+  deleteTodo(id) {
+    return apiClient.delete(`/todos/${id}`);
   },
 
   getTodos() {
