@@ -25,14 +25,16 @@ export default {
   methods: {
     saveTodo() {
       const id = Math.floor(Math.random() * 10000) + 1;
+      const todo = {
+        title: this.title,
+        id: id,
+        crossed: false,
+      };
       api
-        .postTodo({ id })
+        .postTodo(todo)
         .then((response) => {
           console.log("Todo added:", response.data);
-          this.$emit("added", {
-            title: this.title,
-            id: id,
-          });
+          this.$emit("added", todo);
         })
         .catch((error) => {
           console.log("Error saving", error);

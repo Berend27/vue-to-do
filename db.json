@@ -1,9 +1,9 @@
 {
   "todos": [
-    { "title": "Finish the todo app", "id": 1 },
-    { "title": "Walk Peanut", "id": 2 },
-    { "title": "Lift weights", "id": 3 },
-    { "title": "Study for the GRE", "id": 4 },
-    { "title": "Study German", "id": 5 }
+    { "title": "Finish the todo app", "id": 1, "crossed": false },
+    { "title": "Walk Peanut", "id": 2, "crossed": false },
+    { "title": "Lift weights", "id": 3, "crossed": false },
+    { "title": "Study for the GRE", "id": 4, "crossed": false },
+    { "title": "Study German", "id": 5, "crossed": false }
   ]
 }

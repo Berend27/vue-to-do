@@ -18,4 +18,6 @@ export default {
   postTodo(todo) {
     return apiClient.post("/todos", todo);
   },
+
+  // todo: updateTodo
 };
