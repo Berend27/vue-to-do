@@ -35,6 +35,7 @@ export default {
         .then((response) => {
           console.log("Todo added:", response.data);
           this.$emit("added", todo);
+          this.title = "";
         })
         .catch((error) => {
           console.log("Error saving", error);

@@ -1,9 +1,9 @@
 <template>
   <div class="todo">
-    <h2 class="todo-title" :class="{ crossedOut: crossed }">
+    <h2 class="todo-title" :class="{ crossedOut: todo.crossed }">
       {{ todo.title }}
     </h2>
-    <button class="cross-out" @click="crossed = !crossed">-</button>
+    <button class="cross-out" @click="crossOut">-</button>
     <button class="delete-todo" @click.prevent="deleteTodo">X</button>
   </div>
 </template>
@@ -21,12 +21,11 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      crossed: false,
-    };
-  },
   methods: {
+    crossOut() {
+      // apiService.updateTodo
+      this.$emit("crossingOut", this.index);
+    },
     deleteTodo() {
       apiService
         .deleteTodo(this.todo.id)
@@ -38,7 +37,7 @@ export default {
         });
     },
   },
-  emits: ["delete"],
+  emits: ["crossingOut", "delete"],
 };
 </script>
 

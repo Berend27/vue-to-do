@@ -13,6 +13,11 @@
       :key="todo.id"
       :todo="todo"
       :index="index"
+      @crossingOut="
+        (index) => {
+          todos[index].crossed = !todos[index].crossed;
+        }
+      "
       @delete="
         (number) => {
           todos.splice(number, 1);
