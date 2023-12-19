@@ -5,8 +5,20 @@
       "id": 1,
       "crossed": false
     },
-    { "title": "Walk Peanut", "id": 2, "crossed": false },
-    { "title": "Lift weights", "id": 3, "crossed": false },
-    { "title": "Study German", "id": 5, "crossed": false }
+    {
+      "title": "Walk Peanut",
+      "id": 2,
+      "crossed": false
+    },
+    {
+      "title": "Study German",
+      "id": 5,
+      "crossed": false
+    },
+    {
+      "title": "Play piano",
+      "id": 4529,
+      "crossed": false
+    }
   ]
 }
