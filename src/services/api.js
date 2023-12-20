@@ -19,5 +19,7 @@ export default {
     return apiClient.post("/todos", todo);
   },
 
-  // todo: updateTodo
+  updateTodo(data) {
+    return apiClient.put(`/todos/${data.id}`, data);
+  },
 };

@@ -23,8 +23,11 @@ export default {
   },
   methods: {
     crossOut() {
-      // apiService.updateTodo
       this.$emit("crossingOut", this.index);
+      this.todo.crossed = !this.todo.crossed;
+      apiService.updateTodo(this.todo).catch((error) => {
+        console.log(error);
+      });
     },
     deleteTodo() {
       apiService

@@ -1,11 +1,6 @@
 {
   "todos": [
     {
-      "title": "Write and use the function updateTodo",
-      "id": 1,
-      "crossed": false
-    },
-    {
       "title": "Walk Peanut",
       "id": 2,
       "crossed": false
@@ -18,6 +13,16 @@
     {
       "title": "Play piano",
       "id": 4529,
+      "crossed": false
+    },
+    {
+      "title": "Lift weights",
+      "id": 3194,
+      "crossed": false
+    },
+    {
+      "title": "Make a way to edit an item.",
+      "id": 9563,
       "crossed": false
     }
   ]
