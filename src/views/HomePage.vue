@@ -18,6 +18,11 @@
           todos.splice(number, 1);
         }
       "
+      @edited="
+        () => {
+          console.log(`edited`);
+        }
+      "
     />
     <button
       id="show-modal"

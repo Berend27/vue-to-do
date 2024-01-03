@@ -3,12 +3,29 @@
     <h2 class="todo-title" :class="{ crossedOut: todo.crossed }">
       {{ todo.title }}
     </h2>
+    <button class="edit" @click="edit"><i class="bi bi-pencil"></i></button>
     <button class="cross-out" @click="crossOut">-</button>
     <button class="delete-todo" @click.prevent="deleteTodo">X</button>
+    <Teleport to="body">
+      <modal
+        modalTitle="Edit Todo"
+        :show="showModal"
+        @close="showModal = false"
+      >
+        <template #header>
+          <h3>Add a Task</h3>
+        </template>
+        <template #body>
+          <p>Die Form muss hier gehen.</p>
+        </template>
+      </modal>
+    </Teleport>
   </div>
 </template>
 
 <script>
+import Modal from "@/components/Modal.vue";
+// import TodoForm from "./TodoForm.vue";
 import apiService from "../services/api.js";
 export default {
   props: {
@@ -21,9 +38,16 @@ export default {
       required: true,
     },
   },
+  components: {
+    Modal,
+  },
+  data() {
+    return {
+      showModal: false,
+    };
+  },
   methods: {
     crossOut() {
-      this.$emit("crossingOut", this.index);
       this.todo.crossed = !this.todo.crossed;
       apiService.updateTodo(this.todo).catch((error) => {
         console.log(error);
@@ -32,15 +56,19 @@ export default {
     deleteTodo() {
       apiService
         .deleteTodo(this.todo.id)
-        .then((response) => {
+        .then((_response) => {
           this.$emit("delete", this.index);
         })
         .catch((error) => {
           console.log(error);
         });
     },
+    edit() {
+      this.showModal = true;
+      this.$emit("edited", this.index); // todo: put this inside of a .then block
+    },
   },
-  emits: ["crossingOut", "delete"],
+  emits: ["delete", "edited"],
 };
 </script>
 
