@@ -18,21 +18,8 @@
           todos.splice(number, 1);
         }
       "
-      @edited="
-        () => {
-          console.log(`edited`);
-        }
-      "
     />
-    <button
-      id="show-modal"
-      @click="
-        showModal = true;
-        console.log('+ clicked');
-      "
-    >
-      +
-    </button>
+    <button id="show-modal" @click="showModal = true">+</button>
     <Teleport to="body">
       <modal
         modalTitle="Add a Todo"

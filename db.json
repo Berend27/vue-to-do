@@ -21,8 +21,13 @@
       "crossed": false
     },
     {
-      "title": "Make a way to edit an item.",
+      "title": "Style the edit form with SASS",
       "id": 9563,
+      "crossed": false
+    },
+    {
+      "title": "Spielst du ein Videospiel",
+      "id": 2362,
       "crossed": false
     }
   ]

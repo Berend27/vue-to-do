@@ -13,10 +13,10 @@
         @close="showModal = false"
       >
         <template #header>
-          <h3>Add a Task</h3>
+          <h3>Why doesn't this show up?</h3>
         </template>
         <template #body>
-          <p>Die Form muss hier gehen.</p>
+          <EditTodo :todo="todo" />
         </template>
       </modal>
     </Teleport>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import EditTodo from "@/views/EditTodo";
 import Modal from "@/components/Modal.vue";
 // import TodoForm from "./TodoForm.vue";
 import apiService from "../services/api.js";
@@ -39,6 +40,7 @@ export default {
     },
   },
   components: {
+    EditTodo,
     Modal,
   },
   data() {
@@ -65,10 +67,9 @@ export default {
     },
     edit() {
       this.showModal = true;
-      this.$emit("edited", this.index); // todo: put this inside of a .then block
     },
   },
-  emits: ["delete", "edited"],
+  emits: ["delete"],
 };
 </script>
 
